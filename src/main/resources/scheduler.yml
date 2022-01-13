@@ -1,0 +1,11 @@
+settings:
+  interval-between-checks: 20
+
+scheduler:
+  AutoBroadcast:
+    command: 'bc Hello'
+    scheduled-time: '14-01-2022 8:11:00'
+    repeat:
+      enabled: true
+      last-run: ''
+      interval: 100
