@@ -15,6 +15,7 @@ public class CommandManager implements CommandExecutor {
         this.subCommandList = subCommandList;
     }
 
+    // This method handles the command
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!(sender instanceof Player))
@@ -39,6 +40,7 @@ public class CommandManager implements CommandExecutor {
         return true;
     }
 
+    //Gets the plugin args
     public List<String> getArgs(final String[] args){
         return Arrays.asList(args);
     }
