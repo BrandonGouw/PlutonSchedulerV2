@@ -6,9 +6,8 @@
 # Created by BrandonGouw#1781
 
 messages:
-  schedule-sucess: '&a&l[!] &aCommand has been successfully scheduled'
-  schedule-fail: '&c&l[!] &cCommand failed to be scheduled'
+  reload-message: '&a&l[!] &aYou have reloaded the config'
   help:
-    - ''
-    - ''
-    - ''
+    - '&6&lPLUTON &e&lSCHEDULER | &7Made by BrandonGouw'
+    - '&6/plutonscheduler reload &eReloads the config'
+    - '&6/plutonscheduler help &eShows this menu'

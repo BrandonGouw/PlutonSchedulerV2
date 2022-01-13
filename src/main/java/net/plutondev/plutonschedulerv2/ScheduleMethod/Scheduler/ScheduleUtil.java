@@ -26,38 +26,39 @@ public class ScheduleUtil {
     }
 
     //Gets the command
-    public String getCommand(String scheduledCommand){
+    public String getCommand(final String scheduledCommand){
         return this.file.getConfig().getString("scheduler." + scheduledCommand + ".command");
     }
 
     //Gets the scheduledTime
-    public String getScheduledTime(String scheduledCommand){
+    public String getScheduledTime(final String scheduledCommand){
         return this.file.getConfig().getString("scheduler." + scheduledCommand + ".scheduled-time");
     }
 
     //Sets the scheduled time
-    public void setScheduleTime(String scheduledCommand, LocalDateTime time) {
+    public void setScheduleTime(final String scheduledCommand, LocalDateTime time) {
         this.file.getConfig().set("scheduler." + scheduledCommand + ".scheduled-time", time);
         this.file.saveConfig();
     }
 
     //Checks if the command repeats
-    public boolean isRepeat(String scheduledCommand){
+    public boolean isRepeat(final String scheduledCommand){
         return this.file.getConfig().getBoolean("scheduler." + scheduledCommand + ".repeat.enabled");
     }
 
     //Gets when the command is last ran
-    public String getLastRun(String scheduledCommand){
+    public String getLastRun(final String scheduledCommand){
         return this.file.getConfig().getString("scheduler." + scheduledCommand + ".repeat.last-run");
     }
 
     //Sets the last run
-    public void setLastRun(String scheduledCommand, LocalDateTime time) {
+    public void setLastRun(final String scheduledCommand, LocalDateTime time) {
         this.file.getConfig().set("scheduler." + scheduledCommand + ".repeat.last-run", time);
+        this.file.saveConfig();
     }
 
     //Gets the interval on the command
-    public int getInterval(String scheduledCommand){
+    public int getInterval(final String scheduledCommand){
         return this.file.getConfig().getInt("scheduler." + scheduledCommand + ".repeat.interval");
     }
 

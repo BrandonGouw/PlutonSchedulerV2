@@ -22,7 +22,7 @@ public class TimeManager {
      *
      * @return Will return true if timeNow > timeCompare
      */
-    public boolean compareTime(LocalDateTime timeNow, LocalDateTime timeCompare){
+    public boolean compareTime(final LocalDateTime timeNow, final LocalDateTime timeCompare){
         int timeNowValue = timeCalculation.calcValue(timeNow);
         int timeCompareValue = timeCalculation.calcValue(timeCompare);
 
@@ -46,7 +46,7 @@ public class TimeManager {
      * @param time the time which will be formatted.
      * @return Time which has been formatted.
      */
-    public LocalDateTime formatTime(LocalDateTime time){
+    public LocalDateTime formatTime(final LocalDateTime time){
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern(this.getTimeFormat());
 
         return LocalDateTime.parse(timeFormatter.format(time));
@@ -59,7 +59,7 @@ public class TimeManager {
      * @param timeString The string that is going to be parsed into localDateTime
      * @return The method returns the parsed time
      */
-    public LocalDateTime parseTime(String timeString){
+    public LocalDateTime parseTime(final String timeString){
         try {
             return LocalDateTime.parse(timeString);
         }catch (Exception exception){

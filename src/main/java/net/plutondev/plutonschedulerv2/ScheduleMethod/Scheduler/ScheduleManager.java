@@ -41,7 +41,7 @@ public class ScheduleManager {
     }
 
     // This method checks the command if it's the time to execute it.
-    public boolean commandCheck(String command){
+    public boolean commandCheck(final String command){
         LocalDateTime timeNow = this.timeManager.getTime();
         LocalDateTime timeCompare = this.timeManager.parseTime(scheduleUtil.getScheduledTime(command));
 
@@ -56,7 +56,7 @@ public class ScheduleManager {
      *
      * @param command The command that is scheduled to run
      */
-    public void executeCommand(String command){
+    public void executeCommand(final String command){
         ConsoleCommandSender consoleSender = Bukkit.getServer().getConsoleSender();
         Bukkit.getServer().dispatchCommand(consoleSender, this.scheduleUtil.getCommand(command));
 

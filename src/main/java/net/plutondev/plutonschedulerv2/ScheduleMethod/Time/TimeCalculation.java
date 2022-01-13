@@ -52,7 +52,7 @@ public class TimeCalculation {
      * @param seconds the amount of seconds that is going to be
      * @return This method returns the calculated date in the form of LocalDateTime
      */
-    public LocalDateTime addSeconds(LocalDateTime time, int seconds) {
+    public LocalDateTime addSeconds(final LocalDateTime time, final int seconds) {
         return time.plusSeconds(seconds);
     }
 }
