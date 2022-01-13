@@ -3,7 +3,7 @@ settings:
 
 scheduler:
   AutoBroadcast:
-    command: 'msg Brandon_Fight hello'
+    command: 'bc This is a test'
     scheduled-time: '13-01-2022 08:11:00'
     repeat:
       enabled: true
