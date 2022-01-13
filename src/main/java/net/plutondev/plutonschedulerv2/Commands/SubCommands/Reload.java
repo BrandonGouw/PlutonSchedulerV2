@@ -30,6 +30,7 @@ public class Reload extends SubCommand {
     public void executeCommand(Player player, List<String> args) {
         main.schedulerFile.configReload();
         main.reloadConfig();
+        main.scheduleManager.bukkitScheduler();
 
         player.sendMessage(main.messages.getReloadMsg());
     }
