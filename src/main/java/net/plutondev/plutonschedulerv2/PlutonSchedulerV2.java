@@ -49,6 +49,8 @@ public final class PlutonSchedulerV2 extends JavaPlugin {
 
         // [+] OTHER METHODS [+]
         messages = new Messages(this);
+        this.saveDefaultConfig();
+        this.getConfig().options().copyDefaults(true);
 
     }
 

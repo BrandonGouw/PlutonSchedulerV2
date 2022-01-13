@@ -12,6 +12,7 @@ public class Messages {
         this.main = main;
     }
 
+    //Get help message
     public List<String> getHelpMessage(){
         List<String> helpList = this.main.getConfig().getStringList("messages.help");
 
@@ -22,10 +23,12 @@ public class Messages {
         return helpList;
     }
 
+    //Gets reload message
     public String getReloadMsg(){
         return this.getColor(this.main.getConfig().getString("messages.reload-message"));
     }
 
+    //Color code
     public String getColor(String message){
         return ChatColor.translateAlternateColorCodes('&', message);
     }
