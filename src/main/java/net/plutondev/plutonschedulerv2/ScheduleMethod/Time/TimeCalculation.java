@@ -1,6 +1,9 @@
 package net.plutondev.plutonschedulerv2.ScheduleMethod.Time;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
 
 public class TimeCalculation {
 
@@ -43,5 +46,16 @@ public class TimeCalculation {
     //Gets the second
     public int getSecond(final LocalDateTime time){
         return time.getSecond();
+    }
+
+    /**
+     * This method is used to calculate time and add seconds to time
+     *
+     * @param time the current time
+     * @param seconds the amount of seconds that is going to be
+     * @return This method returns the calculated date in the form of LocalDateTime
+     */
+    public LocalDateTime addSeconds(LocalDateTime time, int seconds) {
+        return time.plusSeconds(seconds);
     }
 }

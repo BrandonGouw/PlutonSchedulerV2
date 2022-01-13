@@ -10,7 +10,7 @@ public class TimeManager {
     private final TimeCalculation timeCalculation;
 
     public TimeManager(final TimeCalculation timeCalculation){
-        this.timeCalculation = timeCalculation;;
+        this.timeCalculation = timeCalculation;
     }
 
     /**
