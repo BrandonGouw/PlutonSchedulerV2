@@ -30,7 +30,7 @@ public class CommandManager implements CommandExecutor {
             if(!args[0].equalsIgnoreCase(subCommand.getName()))
                 continue;
 
-            if(!player.hasPermission(subCommand.getPermission()) && subCommand.getPermission() != null)
+            if(!player.hasPermission(subCommand.getPermission()) && !subCommand.getPermission().equals("none"))
                 break;
 
             subCommand.executeCommand(player, getArgs(args));
@@ -40,9 +40,6 @@ public class CommandManager implements CommandExecutor {
     }
 
     public List<String> getArgs(final String[] args){
-        List<String> newArgs = Arrays.asList(args);
-
-        newArgs.remove(0);
-        return newArgs;
+        return Arrays.asList(args);
     }
 }

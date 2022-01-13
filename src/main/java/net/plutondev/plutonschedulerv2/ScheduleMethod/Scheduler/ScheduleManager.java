@@ -32,7 +32,7 @@ public class ScheduleManager {
         List<String> scheduledCommands = this.scheduleUtil.getScheduledCommands();
 
         for (String scheduledCommand : scheduledCommands) {
-            if(this.commandCheck(scheduledCommand))
+            if(!this.commandCheck(scheduledCommand))
                 continue;
 
             executeCommand(scheduledCommand);

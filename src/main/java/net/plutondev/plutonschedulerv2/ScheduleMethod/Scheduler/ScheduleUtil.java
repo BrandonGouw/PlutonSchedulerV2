@@ -1,5 +1,7 @@
 package net.plutondev.plutonschedulerv2.ScheduleMethod.Scheduler;
 
+import net.plutondev.plutonschedulerv2.ScheduleMethod.Time.TimeManager;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +10,11 @@ import java.util.Set;
 
 public class ScheduleUtil {
     private final SchedulerFile file;
+    private final TimeManager timeManager;
 
-    public ScheduleUtil(final SchedulerFile schedulerFile){
+    public ScheduleUtil(final SchedulerFile schedulerFile, final TimeManager timeManager){
         this.file = schedulerFile;
+        this.timeManager = timeManager;
     }
 
     /**
@@ -37,7 +41,14 @@ public class ScheduleUtil {
 
     //Sets the scheduled time
     public void setScheduleTime(final String scheduledCommand, LocalDateTime time) {
-        this.file.getConfig().set("scheduler." + scheduledCommand + ".scheduled-time", time);
+        if(time == null) {
+            this.file.getConfig().set("scheduler." + scheduledCommand + ".scheduled-time", "");
+            this.file.saveConfig();
+
+            return;
+        }
+
+        this.file.getConfig().set("scheduler." + scheduledCommand + ".scheduled-time", this.timeManager.formatTimeString(time));
         this.file.saveConfig();
     }
 
@@ -53,7 +64,7 @@ public class ScheduleUtil {
 
     //Sets the last run
     public void setLastRun(final String scheduledCommand, LocalDateTime time) {
-        this.file.getConfig().set("scheduler." + scheduledCommand + ".repeat.last-run", time);
+        this.file.getConfig().set("scheduler." + scheduledCommand + ".repeat.last-run", this.timeManager.formatTimeString(time));
         this.file.saveConfig();
     }
 

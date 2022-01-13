@@ -49,9 +49,20 @@ public class TimeManager {
     public LocalDateTime formatTime(final LocalDateTime time){
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern(this.getTimeFormat());
 
-        return LocalDateTime.parse(timeFormatter.format(time));
+        return LocalDateTime.parse(timeFormatter.format(time), timeFormatter);
     }
 
+    /**
+     * This method will format the time to the string
+     *
+     * @param time the time which will be formatted
+     * @return A string of the time that has been formatted
+     */
+    public String formatTimeString(final LocalDateTime time){
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern(this.getTimeFormat());
+
+        return timeFormatter.format(time);
+    }
 
     /**
      * This method is used to parse string into time.
@@ -60,8 +71,10 @@ public class TimeManager {
      * @return The method returns the parsed time
      */
     public LocalDateTime parseTime(final String timeString){
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern(this.getTimeFormat());
+
         try {
-            return LocalDateTime.parse(timeString);
+            return LocalDateTime.parse(timeString, timeFormatter);
         }catch (Exception exception){
             Bukkit.getLogger().log(Level.WARNING, "Could not parse timeString");
         }

@@ -35,7 +35,7 @@ public final class PlutonSchedulerV2 extends JavaPlugin {
 
         // [+] SCHEDULE METHODS [+]
         this.schedulerFile = new SchedulerFile(this);
-        this.scheduleUtil = new ScheduleUtil(this.schedulerFile);
+        this.scheduleUtil = new ScheduleUtil(this.schedulerFile, this.timeManager);
         this.scheduleManager = new ScheduleManager(this);
 
         this.scheduleManager.bukkitScheduler();
