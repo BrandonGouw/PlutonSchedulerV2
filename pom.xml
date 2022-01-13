@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.plutondev</groupId>
-    <artifactId>PlutonSchedulerV2</artifactId>
+    <artifactId>PlutonScheduler</artifactId>
     <version>2.0</version>
     <packaging>jar</packaging>
 
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.18.1-R0.1-SNAPSHOT</version>
+            <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

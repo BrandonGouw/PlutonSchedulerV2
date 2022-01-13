@@ -75,6 +75,7 @@ public class ScheduleManager {
         this.scheduleUtil.setScheduleTime(command, scheduleTime);
     }
 
+    // Removes the scheduler.
     public void flush(){
         Bukkit.getScheduler().cancelTasks(main);
     }

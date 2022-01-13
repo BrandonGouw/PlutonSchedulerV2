@@ -1,6 +1,6 @@
 name: PlutonScheduler
 version: '${project.version}'
 main: net.plutondev.plutonschedulerv2.PlutonSchedulerV2
-api-version: 1.18
+api-version: 1.16
 authors: [ BrandonGouw ]
 description: This plugin is a plugin which handles commands which could be added by using the config or in game!

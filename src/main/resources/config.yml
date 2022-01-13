@@ -8,3 +8,7 @@
 messages:
   schedule-sucess: '&a&l[!] &aCommand has been successfully scheduled'
   schedule-fail: '&c&l[!] &cCommand failed to be scheduled'
+  help:
+    - ''
+    - ''
+    - ''
