@@ -10,7 +10,7 @@ public class TimeCalculation {
      * @param time The time to calculate the value
      * @return This method will return the int of all the value combined, value is assigned to seconds
      */
-    public int calcValue(final LocalDateTime time){
+    public int calcValue(final LocalDateTime time) {
         int year = this.getYear(time) * 365 * 24 * 60 * 60;
         int dayOfYear = this.getDayOfYear(time) * 24 * 60 * 60;
         int hour = this.getHour(time) * 60 * 60;
@@ -21,35 +21,35 @@ public class TimeCalculation {
     }
 
     // Gets the year
-    public int getYear(final LocalDateTime time){
+    public int getYear(final LocalDateTime time) {
         return time.getYear();
     }
 
-    //Gets day of year
-    public int getDayOfYear(final LocalDateTime time){
+    // Gets day of year
+    public int getDayOfYear(final LocalDateTime time) {
         return time.getDayOfYear();
     }
 
-    //Gets the hour
-    public int getHour(final LocalDateTime time){
+    // Gets the hour
+    public int getHour(final LocalDateTime time) {
         return time.getHour();
     }
 
-    //Gets the minute
-    public int getMinute(final LocalDateTime time){
+    // Gets the minute
+    public int getMinute(final LocalDateTime time) {
         return time.getMinute();
     }
 
     //Gets the second
-    public int getSecond(final LocalDateTime time){
+    public int getSecond(final LocalDateTime time) {
         return time.getSecond();
     }
 
     /**
      * This method is used to calculate time and add seconds to time
      *
-     * @param time the current time
-     * @param seconds the amount of seconds that is going to be
+     * @param time    the current time
+     * @param seconds the amount of seconds that is going to be added
      * @return This method returns the calculated date in the form of LocalDateTime
      */
     public LocalDateTime addSeconds(final LocalDateTime time, final int seconds) {

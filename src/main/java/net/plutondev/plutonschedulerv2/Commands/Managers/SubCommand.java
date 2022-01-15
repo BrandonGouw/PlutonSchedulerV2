@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class SubCommand {
     public final PlutonSchedulerV2 main;
 
-    public SubCommand(final PlutonSchedulerV2 main){
+    public SubCommand(final PlutonSchedulerV2 main) {
         this.main = main;
     }
 

@@ -13,26 +13,26 @@ public class ScheduleManager {
     private final ScheduleUtil scheduleUtil;
     private final TimeManager timeManager;
 
-    public ScheduleManager(final PlutonSchedulerV2 main){
+    public ScheduleManager(final PlutonSchedulerV2 main) {
         this.main = main;
         this.scheduleUtil = main.scheduleUtil;
         this.timeManager = main.timeManager;
     }
 
     // This method creates a bukkit scheduler which assists with pluton scheduler
-    public void bukkitScheduler(){
+    public void bukkitScheduler() {
         Bukkit.getScheduler().cancelTasks(main);
         int intervalBetweenChecks = this.scheduleUtil.getIntervalBetweenChecks();
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(main, this::commandFor,0, intervalBetweenChecks);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(main, this::commandFor, 0, intervalBetweenChecks);
     }
 
     // This method gets all the scheduled commands and checks them individually and then executes the command
-    public void commandFor(){
+    public void commandFor() {
         List<String> scheduledCommands = this.scheduleUtil.getScheduledCommands();
 
         for (String scheduledCommand : scheduledCommands) {
-            if(!this.commandCheck(scheduledCommand))
+            if (!this.commandCheck(scheduledCommand))
                 continue;
 
             executeCommand(scheduledCommand);
@@ -41,11 +41,11 @@ public class ScheduleManager {
     }
 
     // This method checks the command if it's the time to execute it.
-    public boolean commandCheck(final String command){
+    public boolean commandCheck(final String command) {
         LocalDateTime timeNow = this.timeManager.getTime();
         LocalDateTime timeCompare = this.timeManager.parseTime(scheduleUtil.getScheduledTime(command));
 
-        if(timeCompare == null)
+        if (timeCompare == null)
             return false;
 
         return this.timeManager.compareTime(timeNow, timeCompare);
@@ -56,13 +56,13 @@ public class ScheduleManager {
      *
      * @param command The command that is scheduled to run
      */
-    public void executeCommand(final String command){
+    public void executeCommand(final String command) {
         ConsoleCommandSender consoleSender = Bukkit.getServer().getConsoleSender();
         Bukkit.getServer().dispatchCommand(consoleSender, this.scheduleUtil.getCommand(command));
 
         LocalDateTime timeNow = this.timeManager.getTime();
 
-        if(!this.scheduleUtil.isRepeat(command)) {
+        if (!this.scheduleUtil.isRepeat(command)) {
             this.scheduleUtil.setScheduleTime(command, null);
             return;
         }
@@ -76,7 +76,7 @@ public class ScheduleManager {
     }
 
     // Removes the scheduler.
-    public void flush(){
+    public void flush() {
         Bukkit.getScheduler().cancelTasks(main);
     }
 
