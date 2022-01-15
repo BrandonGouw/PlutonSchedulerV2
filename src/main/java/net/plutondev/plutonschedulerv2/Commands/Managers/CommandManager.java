@@ -24,7 +24,7 @@ public class CommandManager implements CommandExecutor {
         Player player = (Player) sender;
 
         if (args.length < 1) {
-            subCommandList.get(1).executeCommand(player, this.getArgs(args));
+            subCommandList.get(0).executeCommand(player, this.getArgs(args));
             return false;
         }
 
